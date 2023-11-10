@@ -1,0 +1,15 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+	<title>kodluyo</title>
+	<style>
+		.s2 { fill: #292023 } 
+		.s1 { fill: #EFE ; stroke: #EFE;} 
+		/*
+		@media (prefers-color-scheme: dark) {
+      .s0 { fill: #292023 } 
+			.s1 { fill: #EFE } 
+    }
+		*/
+	</style>
+	<rect x="0" y="0" width="128" height="128"  id="Background" class="s0" rx="30" ry="30"/>
+	<path id="k_" class="s1" aria-label="k_" stroke-width="3"  d="m45 63.9q1.7 1.3 3.8 3.2 2.2 1.9 4.3 4.1 2.1 2.2 4 4.6 1.9 2.2 3 4.2h-6.2q-1.2-2-2.9-4-1.8-2-3.8-3.9-2-1.9-4-3.5-1.9-1.6-3.5-2.6v14h-5.2v-42.8l5.2-0.9v26.7q3.5-3 6.9-6 3.5-3 6.3-6.2h6.1q-2.7 3.2-6.6 6.6-3.8 3.4-7.4 6.5zm17 26.5v-4.4h30.5v4.4z"/>
+</svg>

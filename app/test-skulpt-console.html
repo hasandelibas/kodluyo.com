@@ -1,0 +1,98 @@
+<html>
+<head>
+
+<meta charset="utf8">
+<script src="skulpt.js" type="text/javascript"></script> 
+<script src="https://skulpt.org/js/skulpt-stdlib.js" type="text/javascript"></script> 
+
+</head>
+
+<body>
+<script type="text/javascript">
+
+
+/**
+ * @param {Object}
+ */
+function Program(files,options){
+  let program = {
+    response: "",
+    onData  : function(){},
+    onError : function(){},
+    onEnd   : function(){}
+  }
+  function run(code){
+  
+  } 
+  return program
+}
+
+
+
+function Python_Skulpt_Terminal(files,options={}){
+  // TODO: import Module May BE
+  let program = {
+    response: "",
+    onData  : function(e){console.log("PROGRAM::onData("+JSON.stringify(e)+")")} ,
+    onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
+    onEnd   : function(e){console.log("PROGRAM::onEnd("+JSON.stringify(e)+")")} ,
+  }
+  function run(code){    
+    function builtinRead(x){
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+    Sk.configure({
+      output:function(e){program.response+=e;program.onData(e)},
+      read: builtinRead,
+      //__future__: Sk.python3
+    });
+    Sk.python2.print_function = true
+    Sk.inputfunTakesPrompt = true
+      Sk.importMainWithBody("<stdin>",false,code);
+      program.onEnd(program.response)
+    try {
+    } catch (e) {
+      program.onError(e)
+    }
+  }
+
+  setTimeout((res)=>{
+    run(files["main.py"])
+  },10)
+  return program;
+}
+
+
+function outf(text) {
+  console.log(text)
+  var mypre = document.getElementById("output");
+  mypre.innerHTML = mypre.innerHTML + text;
+}
+
+ 
+function runit() {
+  var prog = document.getElementById("yourcode").value;
+  var mypre = document.getElementById("output");
+  mypre.innerHTML = '';
+  program = Python_Skulpt_Terminal({
+    "main.py":prog
+  })
+  program.onData = outf
+}
+</script>
+<h3>Try This</h3>
+<form>
+  
+<textarea edit_id="eta_5" id="yourcode" style="width:400px;height:200px">
+çeyrek = 0.25
+print( "bir çeyrek", çeyrek, "sayısına eşittir." )
+</textarea>
+<button onclick="runit()" type="button">Run</button>
+</form>
+
+<pre id="output"></pre>
+
+</body>
+</html>

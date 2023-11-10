@@ -1,0 +1,72 @@
+- parts/4:
+- text
+
+### Wikipedia' dan veri çekelim
+
+Şimdi beraber wikipedia'dan veri çeken bir fonksiyon yazalım. 
+
+
+Öncelikle `requests` modülünü yüklememiz gerekiyor.
+Aşağıdaki kodu terminale yazarak `requests` modülünü yükleyebilirsin.
+```bash
+python -m pip install requests
+```
+
+
+<code-view name="main.py" language="python">
+def araştır(kelime):
+  import requests
+  resp = requests.get("https://tr.wikipedia.org/api/rest_v1/page/summary/" + kelime)
+  return resp.json()["extract"]
+&nbsp;
+print( araştır("Atatürk") )
+</code-view>
+
+<code-view name="Terminal" language="md">
+
+</code-view>
+
+- files/main.py/.block
+def araştır(kelime):
+  import requests
+  resp = requests.get("https://tr.wikipedia.org/api/rest_v1/page/summary/" + kelime)
+  return resp.json()["extract"]
+
+<<<...❓...>>>
+
+- terminal="Mustafa Kemal Atatürk"
+
+- tests/0/files/main.py/.block
+# yazdır fonksiyonunu ("Cahit","Arf","Matematikçi") 
+# parametreleri ile çağırabilir misin?
+def yazdır( adı, soyadı, meslek ):
+  print("Adı     :" , adı)
+  print("Soyadı  :" , soyadı)
+  print("Mesleği :" , meslek)
+
+yazdır( meslek=<<<...❓...>>> )
+- tests/0/execute
+py main.py
+- tests/0/output
+Adı     : Cahit
+Soyadı  : Arf
+Mesleği : Matematikçi
+
+------------------
+- tests/1/files/main.py/.block
+# yazdır fonksiyonunu ("Cahit","Arf","Matematikçi") 
+# parametreleri ile çağırabilir misin?
+def yazdır( adı, soyadı, meslek ):
+  print("Mesleği :" , meslek)
+  print("Adı     :" , adı)
+  print("Soyadı  :" , soyadı)
+
+yazdır( meslek=<<<...❓...>>> )
+- tests/1/execute
+py main.py
+- tests/1/output
+Mesleği : Matematikçi
+Adı     : Cahit
+Soyadı  : Arf
+
+------------------
