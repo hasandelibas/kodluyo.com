@@ -15,8 +15,6 @@ $content = file_get_contents($content);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>kodluyo.com @<?= $file ?></title>
 
-
-  <!-- <base href="https://apps.asenax.com/kodluyo.com/app/"> -->
   <link rel="icon" href="../source/images/kodluyo.com.svg" type="image/svg+xml">
 
   <!--Directive-->
@@ -156,10 +154,10 @@ $content = file_get_contents($content);
 
   <div class="panel panel-window panel-open-editor panel-open-terminal">
     <div class="panel-title"><img class="panel-title-icon" src="../source/images/kodluyo.com.svg" style="height:1.6em;width:auto;border-radius:4px;">
-      <div class="panel-title-button" href="https://apps.asenax.com/kodluyo.com/app/"><svg
+      <div class="panel-title-button" href="https://kodluyo.com/"><svg
           style="width:24px;height:24px" viewBox="0 0 24 24">
           <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-        </svg></div><a class="panel-title-button" href="https://apps.asenax.com/kodluyo.com/app/"><svg
+        </svg></div><a class="panel-title-button" href="https://kodluyo.com/"><svg
           style="width:24px;height:24px" viewBox="0 0 24 24">
           <path fill="currentColor"
             d="M2 12C2 16.97 6.03 21 11 21C13.39 21 15.68 20.06 17.4 18.4L15.9 16.9C14.63 18.25 12.86 19 11 19C4.76 19 1.64 11.46 6.05 7.05C10.46 2.64 18 5.77 18 12H15L19 16H19.1L23 12H20C20 7.03 15.97 3 11 3C6.03 3 2 7.03 2 12Z">
@@ -174,7 +172,7 @@ $content = file_get_contents($content);
           <path fill="currentColor"
             d="M15.5,14H14.71L14.43,13.73C15.41,12.59 16,11.11 16,9.5A6.5,6.5 0 0,0 9.5,3A6.5,6.5 0 0,0 3,9.5A6.5,6.5 0 0,0 9.5,16C11.11,16 12.59,15.41 13.73,14.43L14,14.71V15.5L19,20.5L20.5,19L15.5,14M9.5,14C7,14 5,12 5,9.5C5,7 7,5 9.5,5C12,5 14,7 14,9.5C14,12 12,14 9.5,14M7,9H12V10H7V9Z">
           </path>
-        </svg></div><a class="panel-title-button" href="https://apps.asenax.com/kodluyo.com/"><svg
+        </svg></div><a class="panel-title-button" href="https://kodluyo.com/"><svg
           style="width:24px;height:24px" viewBox="0 0 24 24">
           <path fill="currentColor" d="M13,20H11V8L5.5,13.5L4.08,12.08L12,4.16L19.92,12.08L18.5,13.5L13,8V20Z"></path>
         </svg></a>
