@@ -1,45 +1,367 @@
-<script src="//hasandelibas.github.io/documenter/documenter.js"></script>
-<meta charset="utf8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<header body-class="hide-menu theme-dark">
-  <div title>💻  kodluyo.com</div>
-  <div class="space"></div>
-  <a href="./app/@python101"> Uygulama </a>
-</header>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kodluyo.com</title>
+  <meta name="description" content="python ve javascript kodlama öğrenme aracı">
+  <meta name="keywords" content="python, javascript, node.js, kodlama, programlama, eğitim">
+  <meta name="author" content="Hasan Delibaş">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kodluyo.com">
+  <link rel="icon" sizes="any" type="image/svg+xml" href="./app/source/images/kodluyo.com.svg">
 
+  <meta property="og:title" content="kodluyo.com">
+  <meta property="og:description" content="python ve javascript kodlama öğrenme aracı">
+  <meta property="og:image" content="https://kodluyo.com/python101.png">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
 
+  <style>
+    /* ---- tasarım değişkenleri (kodluyo.com) ---- */
+    body {
+      --back: #FFF;
+      --front: #000;
+      --light: #8882;
+      --primary: #19F;
+      --primary-text: #FFF;
+      --gradient: linear-gradient(45deg, #0048ff 20%, #37d9ff);
+      --dark-gradient: linear-gradient(45deg, #0037c0 20%, #0b95b4);
+    }
 
-# ⌨️ kodluyo.com
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100%;
+      color: var(--front);
+      background: var(--back);
+      font-family: 'Ubuntu Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; object-fit: contain; }
 
-Merhaba kodluyo uygulamasına hoş geldiniz. Bu geçici anasayfamızdır.
+    /* ---- üst menü: cam efektli, sabit ---- */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: .25em;
+      height: 50px;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: inset 0 0 0 1px #888C, 0 1px 6px #0002;
+      overflow: hidden;
+      transition: color .2s, background .2s;
+    }
+    nav.on-dark {
+      color: var(--back);
+      background: rgba(20, 20, 20, .35);
+    }
+    nav img { height: 80%; width: auto; border-radius: 4px; }
+    nav .brand {
+      font-size: 1.15em;
+      font-weight: 700;
+      padding: 0 .6em 0 .5em;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      white-space: nowrap;
+    }
+    nav .space { flex: 1; }
+    nav a.nav-link {
+      font-weight: 700;
+      padding: .5em .7em;
+      border-bottom: 4px solid transparent;
+      transition: border-color .2s, opacity .2s;
+      white-space: nowrap;
+    }
+    nav a.nav-link:hover { opacity: .7; }
+    nav a.nav-link.active { border-bottom-color: currentColor; }
 
-kodluyo.com, yazılım öğrenmek için kurgulanmış özel bir uygulamadır.
+    /* ---- bölümler: tam ekran ---- */
+    main { position: relative; }
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 24px 60px;
+      overflow: hidden;
+    }
+    section.inverse { background: #141414; color: #EDEDED; }
+    section.light { background: #F4F4F6; }
+    .wrap {
+      width: min(1080px, 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(24px, 5vw, 72px);
+    }
+    .wrap.one-column { grid-template-columns: 1fr; max-width: 760px; }
+    .text h1, .text h2 {
+      font-size: clamp(2em, 5vw, 3.4em);
+      line-height: 1.1;
+      margin-bottom: .35em;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    section.inverse .text h1,
+    section.inverse .text h2 { background: var(--dark-gradient); }
+    .text p {
+      font-size: clamp(1em, 2.2vw, 1.25em);
+      line-height: 1.5;
+      color: #333;
+      max-width: 34em;
+    }
+    section.inverse .text p { color: #CCC; }
+    .text code {
+      background: #0001;
+      padding: .1em .35em;
+      border-radius: 4px;
+    }
+    section.inverse .text code { background: #ffffff1a; }
+    .bullets { list-style: none; padding: 0; margin: 1.4em 0 0; }
+    .bullets li {
+      font-weight: 700;
+      font-size: 1.05em;
+      margin: .45em 0;
+      padding-left: 1.6em;
+      position: relative;
+    }
+    .bullets li::before {
+      content: "\2192";
+      position: absolute;
+      left: 0;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-kodluyo.com' un genel özellikleri;
+    /* ---- butonlar ---- */
+    .buttons { display: flex; flex-wrap: wrap; gap: .75em; margin-top: 1.8em; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5em;
+      padding: .7em 1.4em;
+      border-radius: 1000px;
+      font-weight: 700;
+      font-size: 1em;
+      color: var(--primary-text);
+      background: var(--gradient);
+      box-shadow: 0 4px 16px #0048ff33;
+      transition: transform .15s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 40px #19F8;
+    }
+    .btn.ghost {
+      color: inherit;
+      background: transparent;
+      box-shadow: inset 0 0 0 1px currentColor;
+    }
+    .btn.ghost:hover { box-shadow: inset 0 0 0 1px currentColor, 0 0 24px #0002; }
 
-+ Kolay kullanım.
-+ Oyunlaştırılmış eğitim.
-+ 5 Saniyede kodlamaya başla.
+    /* ---- görsel / kart ---- */
+    .visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1em;
+    }
+    .visual img {
+      width: min(420px, 100%);
+      filter: drop-shadow(0 20px 40px #0003);
+    }
+    .visual img.logo-card {
+      width: min(320px, 86%);
+      border-radius: 16px;
+      background: #111;
+      padding: 1em;
+      box-shadow: 0 20px 60px #0004;
+    }
+    .editor-links { display: grid; gap: .75em; margin-top: 1.8em; }
+    .editor-links .btn { justify-content: flex-start; }
+    .editor-links small { display: block; font-weight: 400; opacity: .75; }
 
-# 📖 Kurslar
+    /* ---- alt bilgi ---- */
+    footer {
+      padding: 2em 1.5em;
+      text-align: center;
+      font-size: .85em;
+      color: #777;
+      background: #0C0C0C;
+    }
+    footer a { text-decoration: underline; }
+    footer a:hover { color: #FFF; }
 
-<div style="display:flex;flex-direction:row;align-items:center">
+    @media only screen and (max-width: 820px) {
+      nav { top: 10px; left: 10px; right: 10px; height: 46px; padding: 0 8px; gap: 0; }
+      nav .brand { font-size: .95em; padding: 0 .3em; }
+      nav img { display: none; }
+      nav a.nav-link { padding: .5em .45em; font-size: .85em; }
+      .wrap { grid-template-columns: 1fr; }
+      .visual { order: -1; }
+      section { padding-top: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
 
-<a href="./app/@python101" style="display:block;margin:auto;"> 
-  <img src="python101.png" style="width:200px">
-</a>
+  <nav id="nav">
+    <img alt="kodluyo.com logo" src="./app/source/images/kodluyo.com.svg">
+    <a href="#anasayfa" class="brand">kodluyo.com</a>
+    <div class="space"></div>
+    <a hover href="#python101" class="nav-link">@python101</a>
+    <a hover href="#javascript101" class="nav-link">@javascript101</a>
+    <a hover href="#editor" class="nav-link">@editor</a>
+    <a hover href="#terminal" class="nav-link">@terminal</a>
+  </nav>
 
-<div style="flex:1">
-## @python101
+  <main>
 
-Python günümüzde en çok kullanılan programlama dillerinden birisidir. 
-Hadi öğrenmek için ne duruyorsun 😀
+    <!-- ================= ANASAYFA ================= -->
+    <section id="anasayfa" class="slide">
+      <div class="wrap">
+        <div class="text">
+          <h1>kodluyo.com</h1>
+          <p>kodluyo.com, yazılım öğrenmek için kurgulanmış özel bir uygulamadır.</p>
+          <ul class="bullets">
+            <li>kendi kendine öğren</li>
+            <li>pratik yaparak öğren</li>
+            <li>kısa sürede öğren</li>
+          </ul>
+          <div class="buttons">
+            <a class="btn" href="./app/@python101/">kodlamaya başla</a>
+            <a class="btn ghost" href="./app/@javascript101/">javascript 101</a>
+          </div>
+        </div>
+        <div class="visual">
+          <img src="./python101.png" alt="kodluyo ekran görüntüsü" loading="lazy">
+        </div>
+      </div>
+    </section>
 
-<hr>
-<a button href="./app/@python101"> Kursa Başla </a>
-<a button href="https://kodluyo.com/app/editor/python.php">Online Python Editörü</a>
-</div>
+    <!-- ================= PYTHON 101 ================= -->
+    <section id="python101" class="slide light">
+      <div class="wrap">
+        <div class="text">
+          <h2>@python101</h2>
+          <p>python günümüzde en çok kullanılan programlama dillerinden birisidir. Hadi öğrenmek için ne duruyorsun 😀</p>
+          <div class="buttons">
+            <a class="btn" href="./app/@python101/">kursa başla</a>
+          </div>
+        </div>
+        <div class="visual">
+          <img src="./python101.png" alt="python101 kursu" loading="lazy">
+        </div>
+      </div>
+    </section>
 
+    <!-- ================= JAVASCRIPT 101 ================= -->
+    <section id="javascript101" class="slide light">
+      <div class="wrap">
+        <div class="text">
+          <h2>@javascript101</h2>
+          <p>JavaScript ve Node.js ile programlamaya giriş. Tarayıcıda <code>console.log</code> ile başla;
+             diziler, nesneler, döngüler ve fonksiyonları öğren. Sonra <code>require</code>, <code>fs</code>,
+             <code>path</code> ve <code>process</code> ile Node.js dünyasına adım at.</p>
+          <div class="buttons">
+            <a class="btn" href="./app/@javascript101/">kursa başla</a>
+            <a class="btn ghost" href="./app/editor/">javascript editörü</a>
+          </div>
+        </div>
+        <div class="visual">
+          <img class="logo-card" src="./javascript101.svg" alt="javascript101 kursu" loading="lazy">
+        </div>
+      </div>
+    </section>
 
+    <!-- ================= EDITOR ================= -->
+    <section id="editor" class="slide inverse">
+      <div class="wrap">
+        <div class="text">
+          <h2>@editor</h2>
+          <p>web tarayıcı üzerinden python ve javascript kodlama aracı. Kurulum yok; kodu yaz, çalıştır,
+             çıktıyı aynı ekranda gör.</p>
+          <div class="editor-links">
+            <a class="btn" href="./app/editor/?lang=python">
+              <span>online python editörü <small>print, fonksiyon, döngü…</small></span>
+            </a>
+            <a class="btn" href="./app/editor/?lang=javascript">
+              <span>online javascript editörü <small>console.log, Node.js modülleri…</small></span>
+            </a>
+          </div>
+        </div>
+        <div class="visual">
+          <img class="logo-card" src="./javascript101.svg" alt="online editör" loading="lazy">
+        </div>
+      </div>
+    </section>
 
-</div>
+    <!-- ================= TERMINAL ================= -->
+    <section id="terminal" class="slide">
+      <div class="wrap one-column text" style="text-align:center">
+        <h2>@terminal</h2>
+        <p style="margin:0 auto">python kurmadan web tarayıcıda terminali çalıştırın.</p>
+        <div class="buttons" style="justify-content:center">
+          <a class="btn" href="./terminal.html">$_ terminali aç</a>
+          <a class="btn ghost" href="./todo.html">yol haritası</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>kodluyo.com — <a href="https://github.com/hasandelibas/kodluyo.com">GitHub</a> ·
+       <a href="./app/">tüm kurslar</a> · We❤️Teknofest</p>
+  </footer>
+
+  <script>
+    // Üst menüde aktif bölümü işaretle ve koyu bölümlerde menü rengini çevir.
+    (function () {
+      var nav = document.getElementById('nav');
+      var links = Array.prototype.slice.call(document.querySelectorAll('nav a.nav-link'));
+      var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+
+      function update() {
+        var y = window.scrollY + 80;
+        var current = sections[0];
+        sections.forEach(function (s) { if (s.offsetTop <= y) current = s; });
+
+        links.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+        });
+        nav.classList.toggle('on-dark', current.classList.contains('inverse'));
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
+
+</body>
+</html>

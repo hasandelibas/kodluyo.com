@@ -1,0 +1,371 @@
+<style>
+  .star{
+    width: auto;
+    transition: .2s;
+    text-decoration: none;
+    color: var(--color);
+    padding: 2px;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+  }
+  .star:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+  }
+  .star::before{
+    content: '☆';
+    font-size: 2em;
+    opacity: .33;
+  }
+  .star.success:before{
+    content: '★';
+    color: #FC0;
+    opacity: 1;
+    filter: drop-shadow(0 0 1px #FC0);
+  }
+  .groups-container{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 1em;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .groups-container::-webkit-scrollbar{
+    height: 12px;
+    width: 12px;
+  }
+  .groups-container::-webkit-scrollbar-thumb{
+    background: #555;
+  }
+  .groups-container::-webkit-scrollbar-track{
+    background: #333;
+  }
+  .groups-container::-webkit-scrollbar-thumb:hover{
+    background: #FC0;
+  }
+
+  .groups {
+    display: flex;
+    width: 100%;
+    gap: .5em;
+  }
+
+  .group {
+    width: 333px;
+    min-width: 333px;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    transition: .2s;
+  }
+
+  .group-title{
+    font-size: 18px;
+    line-height: 2em;
+    color: #FC0;
+    text-align: center;
+  }
+
+  .card{
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0 4px;
+    cursor: none;
+  }
+  .card-title{
+    flex: 1;
+    color: var(--color);
+    text-decoration: none;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.25em;
+    font-size: 16px;
+    opacity: .8;
+    transition: .2s;
+  }
+  .card-title:hover{
+    color: #FC0;
+    opacity: 1;
+  }
+
+
+
+  .groups-container.type-2{
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .groups-container.type-2 .groups{
+    flex-direction: column;
+  }
+
+  .groups-container.type-2 .group{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    max-width: unset;
+    padding-top: .5em;
+  }
+
+  .groups-container.type-2 .group-title{
+    grid-column: 1 / 4;
+    text-align: left;
+  }
+
+  .groups-container.type-2 .card{
+    box-shadow: inset 0 0 0 1px #333;
+    
+  }
+  
+
+  .card a.star:nth-child(3){
+    display:none;
+  }
+  .card a.star:nth-child(4){
+    display:none;
+  }
+
+</style>
+
+<div class="groups-container type-2">
+  <div class="groups">
+
+    <div class="group">
+      <div class="group-title">
+        <div class="group-title-text">console.log : Yazdırma</div>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1000-merhaba-dünya">Merhaba Dünya</a>
+        <a class="star" href="./1000-merhaba-dünya"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1001-merhaba-dünya-çoklu">Çoklu Değer Yazdırma</a>
+        <a class="star" href="./1001-merhaba-dünya-çoklu"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1002-merhaba-dünya-uygulama">Kaçış Karakterleri ve Uygulama</a>
+        <a class="star" href="./1002-merhaba-dünya-uygulama"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+    </div><!-- end group -->
+
+    <div class="group">
+      <div class="group-title">
+        <div class="group-title-text">Değişkenler</div>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1010-değişkenler-number-tam-sayılar">number : Tam Sayılar</a>
+        <a class="star" href="./1010-değişkenler-number-tam-sayılar"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1011-değişkenler-number-ondalıklı">number : Ondalıklı Sayılar</a>
+        <a class="star" href="./1011-değişkenler-number-ondalıklı"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1012-değişkenler-bigint">bigint : Büyük Sayılar</a>
+        <a class="star" href="./1012-değişkenler-bigint"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1013-değişkenler-boolean">boolean : Doğru / Yanlış</a>
+        <a class="star" href="./1013-değişkenler-boolean"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1014-0-değişkenler-metin">string : Metin</a>
+        <a class="star" href="./1014-0-değişkenler-metin"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1014-1-değişkenler-metin-devam">string : Metin (devam)</a>
+        <a class="star" href="./1014-1-değişkenler-metin-devam"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+    </div><!-- end group -->
+
+    <div class="group">
+      <div class="group-title">
+        <div class="group-title-text">Koleksiyonlar</div>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1020-koleksiyonlar-set">Set : Kümeler</a>
+        <a class="star" href="./1020-koleksiyonlar-set"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1022-koleksiyonlar-demetler">Değiştirilemez Diziler</a>
+        <a class="star" href="./1022-koleksiyonlar-demetler"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1023-0-koleksiyonlar-diziler">Array : Diziler</a>
+        <a class="star" href="./1023-0-koleksiyonlar-diziler"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1023-1-koleksiyonlar-diziler-devam">Array : Diziler (devam)</a>
+        <a class="star" href="./1023-1-koleksiyonlar-diziler-devam"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1024-koleksiyonlar-nesne">Object / Map : Nesneler</a>
+        <a class="star" href="./1024-koleksiyonlar-nesne"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+    </div><!-- end group -->
+
+    <div class="group">
+      <div class="group-title">
+        <div class="group-title-text">Operatörler</div>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1030-0-operatörler-aritmetik">Aritmetik Operatörler</a>
+        <a class="star" href="./1030-0-operatörler-aritmetik"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1031-0-operatörler-karşılaştırma">Karşılaştırma Operatörleri</a>
+        <a class="star" href="./1031-0-operatörler-karşılaştırma"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1032-0-operatörler-mantıksal">Mantıksal Operatörler</a>
+        <a class="star" href="./1032-0-operatörler-mantıksal"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1033-0-operatörler-bitsel">Bitsel Operatörler</a>
+        <a class="star" href="./1033-0-operatörler-bitsel"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1034-0-operatörler-atama">Atama Operatörleri</a>
+        <a class="star" href="./1034-0-operatörler-atama"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1035-0-operatörler-aitlik">Aitlik Operatörleri</a>
+        <a class="star" href="./1035-0-operatörler-aitlik"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1036-0-operatörler-kimlik">Kimlik Operatörleri</a>
+        <a class="star" href="./1036-0-operatörler-kimlik"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+    </div><!-- end group -->
+
+    <div class="group">
+      <div class="group-title">
+        <div class="group-title-text">Koşullar / Döngüler / Fonksiyonlar</div>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1040-0-şartlar-if-else">if - else - switch</a>
+        <a class="star" href="./1040-0-şartlar-if-else"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1041-0-döngüler-while">while döngüsü</a>
+        <a class="star" href="./1041-0-döngüler-while"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1042-0-döngüler-for">for döngüsü</a>
+        <a class="star" href="./1042-0-döngüler-for"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1043-0-fonksiyonlar">function : Fonksiyonlar</a>
+        <a class="star" href="./1043-0-fonksiyonlar"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1044-0-fonksiyonlar-ok-fonksiyonlar">Ok Fonksiyonlar</a>
+        <a class="star" href="./1044-0-fonksiyonlar-ok-fonksiyonlar"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1045-0-hata-yönetimi-try-catch">try / catch : Hata Yönetimi</a>
+        <a class="star" href="./1045-0-hata-yönetimi-try-catch"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+    </div><!-- end group -->
+
+    <div class="group">
+      <div class="group-title">
+        <div class="group-title-text">Node.js</div>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1050-node-require">require</a>
+        <a class="star" href="./1050-node-require"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1051-node-fs">fs : Dosya Sistemi</a>
+        <a class="star" href="./1051-node-fs"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1052-node-path">path : Dosya Yolları</a>
+        <a class="star" href="./1052-node-path"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1053-node-process">process</a>
+        <a class="star" href="./1053-node-process"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+      <div class="card">
+        <a class="card-title" href="./1054-node-module-exports">module.exports</a>
+        <a class="star" href="./1054-node-module-exports"></a>
+        <a class="star"></a>
+        <a class="star"></a>
+      </div>
+    </div><!-- end group -->
+
+  </div>
+</div>

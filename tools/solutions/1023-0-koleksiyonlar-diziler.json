@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["0", "2"] },
+    "1": { "main.js": ["-"] },
+    "2": { "main.js": ["push", "pop"] },
+    "3": { "main.js": ["unshift", "shift"] },
+    "4": { "main.js": ["65"] },
+    "5": { "main.js": ["15"] },
+    "6": { "main.js": ["\" - \""] },
+    "7": { "main.js": ["1"] },
+    "8": { "main.js": ["concat"] },
+    "9": { "main.js": ["0"] },
+    "10": { "main.js": ["push"] }
+  }
+}

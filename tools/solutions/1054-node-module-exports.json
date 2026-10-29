@@ -1,0 +1,44 @@
+{
+  "parts": {
+    "0": {
+      "main.js": ["\"./selam.js\""],
+      "selam.js": ["selamVer"]
+    },
+    "1": {
+      "main.js": ["çıkar"],
+      "hesap.js": ["a + b"]
+    },
+    "2": {
+      "main.js": ["\"./hesap.js\""],
+      "hesap.js": ["topla"]
+    },
+    "3": {
+      "main.js": ["\"./kare.js\""],
+      "kare.js": ["sayı * sayı"]
+    },
+    "4": {
+      "main.js": ["require(\"./sayac.js\")"],
+      "sayac.js": ["++sayı"]
+    },
+    "5": {
+      "main.js": ["==="],
+      "hesap.js": ["module.exports = { ikiKat: ikiKat }"]
+    },
+    "6": {
+      "main.js": ["\"./selam.js\"", "require.main === module"],
+      "selam.js": ["==="]
+    },
+    "7": {
+      "main.js": ["dil"],
+      "ayar.js": ["{ dil: \"Türkçe\", sürüm: 2 }"]
+    },
+    "8": {
+      "main.js": ["\"./hesap.js\""],
+      "hesap.js": ["ikiKat(n)"]
+    },
+    "9": {
+      "main.js": ["küp"],
+      "matematik.js": ["küp"]
+    }
+  }
+}

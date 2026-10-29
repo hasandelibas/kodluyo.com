@@ -166,6 +166,7 @@ $content = file_get_contents($content);
   </style>
 
 
+  <script src="./source/program.js"></script>
 </head>
 
 <body theme="dark">
@@ -175,47 +176,6 @@ $content = file_get_contents($content);
   <script src="./views/pager.js"></script>
   <script>
    
-    function Program(files,options){
-      let program = {
-        response: "",
-        onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-        onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-        onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-      }
-
-      let iframe = Program.iframe
-      if(!Program.iframe){
-        iframe = Program.iframe = document.createElement("iframe")
-        iframe.src="api-python-skulpt.html"
-        iframe.onload = function(e){
-          iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-        }
-        document.body.append(iframe)
-        iframe.style.display = "none";
-        //iframe.setAttribute("style",`opacity:none`)
-        
-        
-
-      }else{
-        iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-      }
-      
-      window.onmessage = function(event) {
-        let response = JSON.parse(event.data)
-        if(response.onData !== undefined){
-          program.onData(response.onData)
-        }
-        if(response.onEnd !== undefined){
-          program.onEnd(response.onEnd)
-        }
-        if(response.onError !== undefined){
-          program.onError(response.onError)
-        }
-      };
-      
-      
-      return program
-    }
 
 
     source = {"data": <?= json_encode($content) ?> }

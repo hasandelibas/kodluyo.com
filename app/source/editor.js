@@ -1,5 +1,16 @@
 var HelloWorld = HelloWorld || {};
 
+// Ses dosyalari yalnizca ilk kullanici etkilesiminde yuklenir (tarayici autoplay kurali).
+// Yukleme tamamlanmadan once (veya ses desteklenmiyorsa) cagrilirsa ders akisini
+// bozmamasi icin guvenli, bos bir yedek tanimliyoruz.
+HelloWorld.KeyboardSound = HelloWorld.KeyboardSound || {
+  PlayKeyboardSound: function () { },
+  PlayRandomKeyboardSound: function () { },
+  keyDown: null,
+  keyUp: null,
+  success: null
+};
+
 HelloWorld.Languages = {
   "c": {
     ext: "c",
@@ -437,12 +448,27 @@ HelloWorld.WriteAnimation = function (panel) {
 
 function LoadKeyboardSound(){
 
+  // Ses motoru zaten kurulduysa tekrar kurma.
+  if (HelloWorld.KeyboardSound && HelloWorld.KeyboardSound.context) return;
+
+  // Bazi tarayicilar/cihazlar AudioContext desteklemez veya olusturulmasina izin vermez.
+  // Bu durumda bos yedek (stub) kalir ve ders akisi normal calismaya devam eder.
+  let context;
+  try {
+    let AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    context = new AudioContextClass();
+  } catch (e) {
+    return;
+  }
+
   HelloWorld.KeyboardSound = {}
-  HelloWorld.KeyboardSound.context = new AudioContext();
+  HelloWorld.KeyboardSound.context = context;
   HelloWorld.KeyboardSound.loadSample = function (url) {
     return fetch(url)
-      .then(response => response.arrayBuffer())
-      .then(buffer => HelloWorld.KeyboardSound.context.decodeAudioData(buffer));
+      .then(response => response.ok ? response.arrayBuffer() : Promise.reject(new Error("sound 404")))
+      .then(buffer => HelloWorld.KeyboardSound.context.decodeAudioData(buffer))
+      .catch(() => null);
   }
 
   HelloWorld.KeyboardSound.keySamples = [];
@@ -481,10 +507,14 @@ function LoadKeyboardSound(){
   });
 
   HelloWorld.KeyboardSound.PlayKeyboardSound = function (sample, rate = null, detune = null, volume = null) {
+    // Ses hazir degilse sessizce cik: ders ilerlemesini asla engelleme.
+    if (!HelloWorld.KeyboardSound || !HelloWorld.KeyboardSound.context) return;
     if (sample == undefined) {
       //sample = HelloWorld.KeyboardSound.keySamples[2];
       sample = HelloWorld.KeyboardSound.keyLetter;
     }
+    if (!sample) return;
+    try {
     const source = HelloWorld.KeyboardSound.context.createBufferSource();
     let rates = [0, 0.122462048309373, 0.2599210498948732, 0.4983070768766815, 0.6817928305074292]
     let _rate = 1
@@ -510,6 +540,9 @@ function LoadKeyboardSound(){
 
     source.gainNode.connect(HelloWorld.KeyboardSound.context.destination);
     source.start(0);
+    } catch (e) {
+      // Ses calinamadi (ornek dosyasi cozulemedi vb.) - ders akisini etkilemez.
+    }
   }
 
 

@@ -1,0 +1,44 @@
+{
+  "parts": {
+    "0": { "main.js": ["\"path\""] },
+    "1": { "main.js": ["basename"] },
+    "2": {
+      "main.js": ["\"./hesap.js\""],
+      "hesap.js": ["a + b"]
+    },
+    "3": {
+      "main.js": ["\"./hesap.js\""],
+      "hesap.js": ["a * b"]
+    },
+    "4": {
+      "main.js": ["cikar"],
+      "hesap.js": ["cikar"]
+    },
+    "5": {
+      "main.js": ["carp"],
+      "hesap.js": ["*"]
+    },
+    "6": {
+      "main.js": ["\"./veri.json\""],
+      "veri.json": ["\"Türkiye\""]
+    },
+    "7": {
+      "main.js": ["\"./sayac.js\""],
+      "sayac.js": ["\"sayac.js yüklendi\""]
+    },
+    "8": {
+      "main.js": ["sepet.elma", "sepet.armut"],
+      "hesap.js": ["a + b"],
+      "sepet.json": ["12"]
+    },
+    "9": {
+      "main.js": ["\"./mesaj.js\""],
+      "mesaj.js": ["ad"]
+    },
+    "10": {
+      "main.js": ["fatura.tutar"],
+      "hesap.js": ["*"],
+      "fatura.json": ["100"]
+    }
+  }
+}

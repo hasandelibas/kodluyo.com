@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "0": { "main.js": ["in", "in"] },
+    "1": { "main.js": ["in", "in", "in"] },
+    "2": { "main.js": ["Object.hasOwn", "Object.hasOwn"] },
+    "3": { "main.js": ["includes", "includes"] },
+    "4": { "main.js": ["includes", "includes"] },
+    "5": { "main.js": ["toLowerCase"] },
+    "6": { "main.js": ["instanceof", "instanceof", "instanceof"] },
+    "7": { "main.js": ["Map", "Set"] },
+    "8": { "main.js": ["in", "in", "includes"] },
+    "9": { "main.js": ["in", "in", "includes", "Object.hasOwn", "instanceof"] }
+  }
+}

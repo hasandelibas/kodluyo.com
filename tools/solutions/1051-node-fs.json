@@ -1,0 +1,16 @@
+{
+  "parts": {
+    "0": { "main.js": ["\"veri.txt\""] },
+    "1": { "main.js": ["split"] },
+    "2": { "main.js": ["\"Merhaba dosya!\""] },
+    "3": { "main.js": ["appendFileSync"] },
+    "4": { "main.js": ["fs.existsSync(\"ayar.txt\")"] },
+    "5": { "main.js": ["fs.existsSync(\"not.txt\")"] },
+    "6": { "main.js": ["readdirSync"] },
+    "7": { "main.js": ["size"] },
+    "8": { "main.js": ["unlinkSync"] },
+    "9": { "main.js": ["\"kaynak.txt\""] },
+    "10": { "main.js": ["hata.code"] },
+    "11": { "main.js": ["toUpperCase"] }
+  }
+}

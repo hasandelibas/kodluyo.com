@@ -176,6 +176,7 @@ function slugify($text) {
   </style>
 
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 </head>
 
 <body theme="dark">
@@ -184,47 +185,6 @@ function slugify($text) {
 
   <script>
     
-    function Program(files,options){
-      let program = {
-        response: "",
-        onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
-        onError : function(e){console.log("PROGRAM::onError("+JSON.stringify(e)+")")} ,
-        onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
-      }
-
-      let iframe = Program.iframe
-      if(!Program.iframe){
-        iframe = Program.iframe = document.createElement("iframe")
-        iframe.src="api-python-skulpt.html"
-        iframe.onload = function(e){
-          iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-        }
-        document.body.append(iframe)
-        iframe.style.display = "none";
-        //iframe.setAttribute("style",`opacity:none`)
-        
-        
-
-      }else{
-        iframe.contentWindow.postMessage(JSON.stringify(files), "*");
-      }
-      
-      window.onmessage = function(event) {
-        let response = JSON.parse(event.data)
-        if(response.onData !== undefined){
-          program.onData(response.onData)
-        }
-        if(response.onEnd !== undefined){
-          program.onEnd(response.onEnd)
-        }
-        if(response.onError !== undefined){
-          program.onError(response.onError)
-        }
-      };
-      
-      
-      return program
-    }
 
 
     //var source =  {"data":"- show_content = true\r\n- show_editor = true\r\n- show_terminal = true\r\n- language = \"python\"\r\n- title = \"🔢 Değişkenler int : Tam Sayılar\"\r\n- run = \"py main.py\"\r\n\r\n- parts/0/text\r\n# 🔢 **int** : Tam Sayılar \r\n``int`` yani tam sayıları tanımlamak için ``=`` operatörünü kullanırız.\r\n\r\n<code-view name=\"main.py\" language=\"python\">\r\nyıl = 2023\r\nprint(yıl)\r\n</code-view>\r\n<code-view name=\"Terminal\" language=\"bash\">\r\n2023\r\n</code-view>\r\n\r\n\r\n\r\n\r\n- parts/0/files/main.py/.block\r\n# yıl değişkenini 2023 yapar mısın?\r\nyıl = <<< ❓ >>>\r\nprint(yıl)\r\n---------------------\r\n- parts/0/tests/0/output\r\n2023\r\n\r\n---------------------\r\n\r\n- parts/1/text\r\n\r\n<code-view name=\"main.py\" language=\"python\">\r\nsaat = 24\r\nprint( 'bir günde', saat, 'saat vardır.' )\r\n</code-view>\r\n<code-view name=\"Terminal\" language=\"bash\">\r\nbir günde 24 saat vardır.\r\n</code-view>\r\n\r\n- parts/1/files/main.py/.block\r\n# bir günde kaç saat vardır?\r\n# saat değişkenini tanımlar mısın?\r\n<<< ❓ >>>\r\nprint( 'bir günde', saat, 'saat vardır.' )\r\n---------------------\r\n- parts/1/tests/0/output\r\nbir günde 24 saat vardır.\r\n\r\n---------------------\r\n\r\n\r\n\r\n- parts/2/text\r\n<code-view name=\"main.py\" language=\"python\">\r\nyıl = 1919\r\nprint( yıl, \"yılında Atatürk Samsun'a çıktı.\" )\r\n</code-view>\r\n<code-view name=\"Terminal\" language=\"shell\">\r\n1919 yılında Atatürk Samsun'a çıktı.\r\n</code-view>\r\n\r\n- parts/2/files/main.py/.block\r\n# yıl değişkenini tanımlar mısın?\r\n<<< ❓ >>>\r\nprint( yıl, \"yılında Atatürk Samsun'a çıktı.\" )\r\n---------------------\r\n- parts/2/tests/0/output\r\n1919 yılında Atatürk Samsun'a çıktı.\r\n\r\n---------------------\r\n\r\n\r\n\r\n- parts/3/text\r\n<code-view name=\"main.py\" language=\"python\">\r\nsayı = -5\r\nprint( sayı, \"sayısı ile 5 sayısını toplarsak 0 yapar.\" )\r\n</code-view>\r\n<code-view name=\"Terminal\" language=\"shell\">\r\n&minus;5 sayısı ile 5 sayısını toplarsak 0 yapar.\r\n</code-view>\r\n\r\n- parts/3/files/main.py/.block\r\n# sayı değişkenini tanımlar mısın?\r\n<<< ❓ >>>\r\nprint( sayı, \"sayısı ile 5 sayısını toplarsak 0 yapar.\" )\r\n---------------------\r\n- parts/3/tests/0/output\r\n&minus;5 sayısı ile 5 sayısını toplarsak 0 yapar.\r\n\r\n---------------------\r\n","next":"1011-değişkenler-float.md"};

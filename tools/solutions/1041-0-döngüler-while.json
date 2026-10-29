@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["<="] },
+    "1": { "main.js": ["+="] },
+    "2": { "main.js": [">"] },
+    "3": { "main.js": ["2"] },
+    "4": { "main.js": ["<"] },
+    "5": { "main.js": ["break"] },
+    "6": { "main.js": ["continue"] },
+    "7": { "main.js": ["sayı++"] },
+    "8": { "main.js": ["+="] },
+    "9": { "main.js": ["Math.floor(sayı / 10)"] },
+    "10": { "main.js": ["*="] }
+  }
+}

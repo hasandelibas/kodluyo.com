@@ -1,0 +1,16 @@
+{
+  "parts": {
+    "0": { "main.js": ["ad", "yaş"] },
+    "1": { "main.js": ["fiyat * adet"] },
+    "2": { "main.js": ["Merhaba\ndünya!"] },
+    "3": { "main.js": ["startsWith", "endsWith"] },
+    "4": { "main.js": ["repeat"] },
+    "5": { "main.js": ["padStart"] },
+    "6": { "main.js": ["charAt", "charAt"] },
+    "7": { "main.js": ["trim", "toUpperCase"] },
+    "8": { "main.js": ["String(yıl)", "String(değer)"] },
+    "9": { "main.js": ["Number", "Number"] },
+    "10": { "main.js": ["toUpperCase"] },
+    "11": { "main.js": ["trim", "toUpperCase"] }
+  }
+}

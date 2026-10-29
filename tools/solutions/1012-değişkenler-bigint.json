@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "0": { "main.js": ["123n"] },
+    "1": { "main.js": ["10", "10n"] },
+    "2": { "main.js": ["+"] },
+    "3": { "main.js": ["-"] },
+    "4": { "main.js": ["*"] },
+    "5": { "main.js": ["**"] },
+    "6": { "main.js": [">"] },
+    "7": { "main.js": ["Number.MAX_SAFE_INTEGER", "9007199254740993"] },
+    "8": { "main.js": ["BigInt"] },
+    "9": { "main.js": ["String(büyük)"] }
+  }
+}

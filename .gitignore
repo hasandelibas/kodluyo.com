@@ -1,0 +1,13 @@
+# Statik GitHub Pages çıktısı (node tools/build-pages.js ile üretilir)
+docs/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# İşletim sistemi
+.DS_Store
+Thumbs.db
+
+# Kullanici ekleri (ekran goruntusu vb.)
+attachments/

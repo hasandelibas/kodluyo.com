@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["<"] },
+    "1": { "main.js": [">="] },
+    "2": { "main.js": ["+="] },
+    "3": { "main.js": ["+="] },
+    "4": { "main.js": ["/"] },
+    "5": { "main.js": ["of"] },
+    "6": { "main.js": ["harf"] },
+    "7": { "main.js": ["in"] },
+    "8": { "main.js": ["for"] },
+    "9": { "main.js": ["break"] },
+    "10": { "main.js": ["continue"] }
+  }
+}

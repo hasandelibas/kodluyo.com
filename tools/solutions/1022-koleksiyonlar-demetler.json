@@ -1,0 +1,13 @@
+{
+  "parts": {
+    "0": { "main.js": ["\"mavi\""] },
+    "1": { "main.js": ["4"] },
+    "2": { "main.js": ["freeze"] },
+    "3": { "main.js": ["dondurulmuş", "serbest"] },
+    "4": { "main.js": ["4", "9"] },
+    "5": { "main.js": ["...dondurulmuş"] },
+    "6": { "main.js": ["push"] },
+    "7": { "main.js": ["concat", "slice"] },
+    "8": { "main.js": ["...başlangıç"] }
+  }
+}

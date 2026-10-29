@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>javascript runner - kodluyo.com</title>
+</head>
+
+<body>
+  <!--
+    kodluyo.com JavaScript (Node.js) calistirici.
+    Ust pencereden gelen dosya listesini calistirir ve
+    sonuclari postMessage ile geri gonderir.
+
+    Gelen mesaj  : { "main.js": "...", "selam.js": "..." }
+    Giden mesaj  : { "onData": "..." } | { "onEnd": "..." } | { "onError": "..." }
+  -->
+  <script src="./source/javascript-runner.js"></script>
+  <script>
+    (function () {
+      var running = null;
+
+      function post(message) {
+        window.parent.postMessage(JSON.stringify(message), "*");
+      }
+
+      window.addEventListener("message", function (event) {
+        var files;
+        try {
+          files = JSON.parse(event.data);
+        } catch (error) {
+          return;
+        }
+
+        if (!files || typeof files !== "object" || Array.isArray(files)) {
+          return;
+        }
+
+        if (running && running.cancel) {
+          running.cancel();
+        }
+
+        var entry = files["main.js"] !== undefined ? "main.js" : undefined;
+
+        running = KodluyoNode.run(files, {
+          entry: entry,
+          onData: function (chunk) {
+            post({ onData: chunk });
+          },
+          onEnd: function (output) {
+            post({ onEnd: output });
+          },
+          onError: function (message) {
+            post({ onError: message });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

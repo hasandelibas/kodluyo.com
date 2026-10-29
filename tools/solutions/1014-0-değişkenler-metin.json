@@ -1,0 +1,16 @@
+{
+  "parts": {
+    "0": { "main.js": ["\"Atatürk\""] },
+    "1": { "main.js": ["'kodluyo'"] },
+    "2": { "main.js": ["length"] },
+    "3": { "main.js": ["0", "6"] },
+    "4": { "main.js": ["toUpperCase", "toLowerCase"] },
+    "5": { "main.js": ["includes", "includes"] },
+    "6": { "main.js": ["slice", "slice"] },
+    "7": { "main.js": ["trim"] },
+    "8": { "main.js": ["replace"] },
+    "9": { "main.js": ["split"] },
+    "10": { "main.js": ["+", "+"] },
+    "11": { "main.js": ["trim", "toUpperCase", "length"] }
+  }
+}

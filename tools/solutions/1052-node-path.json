@@ -1,0 +1,16 @@
+{
+  "parts": {
+    "0": { "main.js": ["\"main.js\""] },
+    "1": { "main.js": ["\"..\""] },
+    "2": { "main.js": ["\".txt\""] },
+    "3": { "main.js": ["dirname"] },
+    "4": { "main.js": ["extname"] },
+    "5": { "main.js": ["path.sep"] },
+    "6": { "main.js": ["\"veri.txt\""] },
+    "7": { "main.js": ["name"] },
+    "8": { "main.js": ["path.relative"] },
+    "9": { "main.js": ["isAbsolute"] },
+    "10": { "main.js": ["format"] },
+    "11": { "main.js": ["\"javascript\""] }
+  }
+}

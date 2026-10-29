@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["selamla"] },
+    "1": { "main.js": ["isim"] },
+    "2": { "main.js": ["+"] },
+    "3": { "main.js": ["*"] },
+    "4": { "main.js": ["="] },
+    "5": { "main.js": ["..."] },
+    "6": { "main.js": ["mesaj"] },
+    "7": { "main.js": ["*"] },
+    "8": { "main.js": ["zıpla"] },
+    "9": { "main.js": ["sayı"] },
+    "10": { "main.js": ["/"] }
+  }
+}

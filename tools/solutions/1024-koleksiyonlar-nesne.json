@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["{ ad: \"Suç ve Ceza\", yil: 1866 }"] },
+    "1": { "main.js": ["marka", "yil"] },
+    "2": { "main.js": ["\"fiyat\"", "\"ad\""] },
+    "3": { "main.js": ["müdür", "müdür"] },
+    "4": { "main.js": ["keys", "values", "entries"] },
+    "5": { "main.js": ["armut"] },
+    "6": { "main.js": ["..."] },
+    "7": { "main.js": ["set"] },
+    "8": { "main.js": ["has", "size", "delete"] },
+    "9": { "main.js": ["size"] },
+    "10": { "main.js": ["fiyat", "size"] }
+  }
+}

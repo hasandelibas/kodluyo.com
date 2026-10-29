@@ -158,6 +158,7 @@ function slugify($text) {
   </style>
 
   <script src="./views/pager.js"></script>
+  <script src="./source/program.js"></script>
 </head>
 
 <body theme="dark">
@@ -167,6 +168,10 @@ function slugify($text) {
   <script>
     
     function Program(files,options){
+      options = options || {}
+      let language = (options.language=="javascript" || options.language=="js" || options.language=="node" || options.language=="nodejs") ? "javascript" : "python"
+      let runnerUrl = language=="javascript" ? "api-javascript.html" : "api-python-skulpt.html"
+
       let program = {
         response: "",
         onData  : function(e){console.log("PROGRAM::onData(" +JSON.stringify(e)+")")} ,
@@ -174,24 +179,27 @@ function slugify($text) {
         onEnd   : function(e){console.log("PROGRAM::onEnd("  +JSON.stringify(e)+")")} ,
       }
 
-      let iframe = Program.iframe
-      if(!Program.iframe){
-        iframe = Program.iframe = document.createElement("iframe")
-        iframe.src="api-python-skulpt.html"
+      Program.frames = Program.frames || {}
+      let iframe = Program.frames[language]
+      if(!iframe){
+        iframe = Program.frames[language] = document.createElement("iframe")
+        iframe.src = runnerUrl
         iframe.onload = function(e){
           iframe.contentWindow.postMessage(JSON.stringify(files), "*");
         }
         document.body.append(iframe)
-        iframe.setAttribute("style",`opacity:none`)
-        
-        
-
+        iframe.style.display = "none";
+        if(language=="javascript") iframe.setAttribute("sandbox","allow-scripts")
       }else{
         iframe.contentWindow.postMessage(JSON.stringify(files), "*");
       }
       
       window.onmessage = function(event) {
-        let response = JSON.parse(event.data)
+        // Monaco kendi zamanlayicisi icin nesne yollar; yalnizca string JSON isle.
+        if (typeof event.data !== "string") return;
+        let response;
+        try { response = JSON.parse(event.data) } catch (e) { return }
+        if (!response || typeof response !== "object") return;
         if(response.onData)
           program.onData(response.onData)
         if(response.onEnd){

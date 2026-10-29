@@ -104,9 +104,14 @@ LevelFixer.fix = function (data) {
     }
   }
 
-  if(data.language=="python"){
+  if(data.language=="python" || data.language=="py"){
     Dion.default(data, "parts/_/tests/_/execute", data.run || "python main.py", "/");
     Dion.default(data, "run", "python main.py", "/");
+  }
+
+  if(data.language=="javascript" || data.language=="js" || data.language=="node"){
+    Dion.default(data, "parts/_/tests/_/execute", data.run || "node main.js", "/");
+    Dion.default(data, "run", "node main.js", "/");
   }
 
   

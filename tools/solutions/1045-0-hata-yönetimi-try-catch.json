@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "0": { "main.js": ["catch"] },
+    "1": { "main.js": ["throw"] },
+    "2": { "main.js": ["message"] },
+    "3": { "main.js": ["name", "name"] },
+    "4": { "main.js": ["JSON.parse"] },
+    "5": { "main.js": ["\"Hata: \" + hata.name"] },
+    "6": { "main.js": ["finally"] },
+    "7": { "main.js": ["Number"] },
+    "8": { "main.js": ["console.log(\"Yakalanan hata:\", hata.message)"] },
+    "9": { "main.js": ["console.log(\"Atlandı:\", hata.name)"] }
+  }
+}

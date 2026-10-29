@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "0": { "main.js": ["cwd"] },
+    "1": { "main.js": ["platform"] },
+    "2": { "main.js": ["node"] },
+    "3": { "main.js": ["1"] },
+    "4": { "main.js": ["process.argv.slice(2)"] },
+    "5": { "main.js": ["USER"] },
+    "6": { "main.js": ["process.env.NODE_ENV"] },
+    "7": { "main.js": ["\"Yükleniyor...\""] },
+    "8": { "main.js": ["1"] },
+    "9": { "main.js": ["arch"] }
+  }
+}

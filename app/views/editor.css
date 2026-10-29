@@ -478,7 +478,7 @@ code-view::before {
 
 code-view[name="Terminal"]::before{
   content: attr(name);
-  background-image: url(/images/terminal.svg);
+  background-image: url(../source/images/terminal.svg);
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: 10px;
@@ -487,7 +487,7 @@ code-view[name="Terminal"]::before{
 
 code-view[name$='.py']::before{
   content: attr(name);
-  background-image: url(/images/py.svg);
+  background-image: url(../source/images/py.svg);
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: 10px;

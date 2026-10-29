@@ -1,0 +1,16 @@
+{
+  "parts": {
+    "0": { "main.js": ["x * x"] },
+    "1": { "main.js": ["\"Merhaba \" + ad"] },
+    "2": { "main.js": ["a + b"] },
+    "3": { "main.js": ["return toplam / 2"] },
+    "4": { "main.js": ["()", "Merhaba dünya!"] },
+    "5": { "main.js": ["({ ad: ad, yas: yas })"] },
+    "6": { "main.js": ["n * 2"] },
+    "7": { "main.js": ["==="] },
+    "8": { "main.js": ["f * 2"] },
+    "9": { "main.js": ["+"] },
+    "10": { "main.js": ["this.ad"] },
+    "11": { "main.js": ["+"] }
+  }
+}

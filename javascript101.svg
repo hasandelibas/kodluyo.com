@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240">
+  <rect width="400" height="240" rx="20" fill="#1A1B1A"/>
+  <rect x="1" y="1" width="398" height="238" rx="19" fill="none" stroke="#333" stroke-width="2"/>
+  <rect x="150" y="40" width="100" height="100" rx="10" fill="#e9ca32"/>
+  <text x="200" y="108" text-anchor="middle" font-family="Ubuntu Mono, monospace" font-size="60" font-weight="bold" fill="#1A1B1A">JS</text>
+  <text x="200" y="170" text-anchor="middle" font-family="Ubuntu Mono, monospace" font-size="40" font-weight="bold" fill="#EEE">101</text>
+  <text x="200" y="205" text-anchor="middle" font-family="Ubuntu Mono, monospace" font-size="16" fill="#FC0">JavaScript &amp; Node.js</text>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["\"Dünya\""] },
+    "1": { "main.js": ["\"bir\""] },
+    "2": { "main.js": ["4"] },
+    "3": { "main.js": ["+"] },
+    "4": { "main.js": ["fiyat"] },
+    "5": { "main.js": ["ad"] },
+    "6": { "main.js": ["+"] },
+    "7": { "main.js": ["console.log();"] },
+    "8": { "main.js": ["\"Mehmet\""] },
+    "9": { "main.js": ["*"] },
+    "10": { "main.js": ["+"] }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["Merhaba Dünya"] },
+    "1": { "main.js": ["'Dünya'"] },
+    "2": { "main.js": ["2024"] },
+    "3": { "main.js": ["\"Mehmet\""] },
+    "4": { "main.js": ["yaş"] },
+    "5": { "main.js": ["+"] },
+    "6": { "main.js": ["yaş"] },
+    "7": { "main.js": ["\" \""] },
+    "8": { "main.js": ["console.log(\"1) Çay\");"] },
+    "9": { "main.js": ["// Ekrana selam yazdırıyorum.\nconsole.log(\"Selam!\");"] },
+    "10": { "main.js": ["ürün"] }
+  }
+}

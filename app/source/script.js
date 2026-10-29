@@ -46,7 +46,7 @@ function Create8Lang(){
       <div class="block" id="${language.ext}">
         <div class="title">
           <div class="top-bar">
-            <img src="./images/${language.ext}.svg" class="language-image">
+            <img src="./source/images/${language.ext}.svg" class="language-image">
             <div class="lang">${language.title}</div>
           </div>
           <div class="files">
@@ -59,7 +59,7 @@ function Create8Lang(){
         </div>
         <div class="preview">
           <div class="code"></div>
-          <div class="terminal-bar"> <img src="./images/terminal.svg" class="language-image"> Terminal ${HelloWorld.LoadingIcon} </div>
+          <div class="terminal-bar"> <img src="./source/images/terminal.svg" class="language-image"> Terminal ${HelloWorld.LoadingIcon} </div>
           <div class="terminal-box" tabindex="0"></div>
         </div>
       </div>`).get(0)

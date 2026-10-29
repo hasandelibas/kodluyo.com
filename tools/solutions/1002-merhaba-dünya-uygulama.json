@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "0": { "main.js": ["\\n"] },
+    "1": { "main.js": ["\\t"] },
+    "2": { "main.js": ["\\\\", "\\\\"] },
+    "3": { "main.js": ["\\\"", "\\\""] },
+    "4": { "main.js": ["ad"] },
+    "5": { "main.js": ["*"] },
+    "6": { "main.js": ["Atatürk Caddesi 12"] },
+    "7": { "main.js": ["adet", "ürün"] },
+    "8": { "main.js": ["\\n"] },
+    "9": { "main.js": ["fiyat + kdv"] },
+    "10": { "main.js": ["*"] }
+  }
+}

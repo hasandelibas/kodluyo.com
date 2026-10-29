@@ -1,0 +1,14 @@
+{
+  "parts": {
+    "0": { "main.js": ["new Set"] },
+    "1": { "main.js": ["add", "add"] },
+    "2": { "main.js": ["has", "has"] },
+    "3": { "main.js": ["delete"] },
+    "4": { "main.js": ["size"] },
+    "5": { "main.js": ["[...new Set(sayılar)]"] },
+    "6": { "main.js": ["of"] },
+    "7": { "main.js": ["forEach"] },
+    "8": { "main.js": ["new Set([...a, ...b])"] },
+    "9": { "main.js": ["filter"] }
+  }
+}
